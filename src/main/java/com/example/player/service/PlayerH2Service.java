@@ -64,13 +64,13 @@ public JdbcTemplate db;
       Player existPlayer=getPlayerById(playerId);
 
       if(player.getPlayerName()!=null)
-      db.update("insert into team(playerName) values(?) where playerId = ?",player.getPlayerName(),playerId);
+      db.update("update team set playerName=? where playerId = ?",player.getPlayerName(),playerId);
 
       if(player.getJerseyNumber() !=0)
-     db.update("insert into team(jerseyNumber) values(?) where playerId = ?",player.getJerseyNumber(),playerId);
+     db.update("update team set jerseyNumber=? where playerId= ?",player.getJerseyNumber(),playerId);
 
        if(player.getRole() !=null)
-     db.update("insert into team(role) values(?) where playerId = ?",player.getRole(),playerId);
+     db.update("update team set role=? where playerId= ?",player.getRole(),playerId);
      
      return getPlayerById(playerId);
     }
